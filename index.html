@@ -15,11 +15,45 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
+<body class="gray-back">
+  <header class="m-0auto purple-back">
+    <div class="container">
+      <div class="row ptb-10p">
+        <h2 class="white-txt">Code Journal</h2>
+      </div>
+    </div>
   </header>
-  <main>
-  </main>
+  <div class="container">
+    <main class="pb-20p">
+      <h1 class="pt-20p mb-20p">New Entry</h1>
+      <div data-view="entry-form">
+        <form>
+          <div class="row">
+            <div class="column-half mb-20p">
+              <img src="/images/placeholder-image-square.jpg" alt="img">
+            </div>
+            <div class="column-half">
+              <p>Title</p>
+              <div class="mt-5p row">
+                <input type="text" name="title">
+              </div>
+              <p class="mt-20p">Photo URL</p>
+              <div class="mt-5p mb-20p row">
+                <input type="url" name="photoURL">
+              </div>
+            </div>
+            <div class="column-full">
+              <p>Notes</p>
+              <textarea class="mt-5p note-input" name="notes"> </textarea>
+              <div class="row mt-20p">
+                <button class="purple-back white-txt justify-left">SAVE</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
