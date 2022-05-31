@@ -20,6 +20,12 @@ function saveAction(event) {
   $photo.value = '';
   $title.value = '';
   $note.value = '';
+  storage();
+}
+
+function storage() {
+  var dataJSON = JSON.stringify(data);
+  localStorage.setItem('userData', dataJSON);
 }
 
 $saveButton.addEventListener('click', saveAction);
