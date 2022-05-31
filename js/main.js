@@ -1,15 +1,10 @@
-var $txtInput = document.querySelectorAll('.txt-input');
 var $saveButton = document.querySelector('.save-button');
 var $title = document.querySelector('#title');
 var $photo = document.querySelector('#photo');
 var $note = document.querySelector('#note-input');
+var $img = document.querySelector('img');
 
 function saveAction(event) {
-  for (var inputNode = 0; inputNode < $txtInput.length; inputNode++) {
-    if ($txtInput[inputNode] === '') {
-      event.preventDefault();
-    }
-  }
   event.preventDefault();
   data.entries.push({});
   data.entries[data.nextEntryId - 1].imgSrc = $photo.value;
@@ -20,7 +15,12 @@ function saveAction(event) {
   $photo.value = '';
   $title.value = '';
   $note.value = '';
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   storage(data);
+}
+
+function imgUpdate(event) {
+  $img.setAttribute('src', $photo.value);
 }
 
 function storage(input) {
@@ -29,3 +29,4 @@ function storage(input) {
 }
 
 $saveButton.addEventListener('click', saveAction);
+$photo.addEventListener('keyup', imgUpdate);
