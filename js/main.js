@@ -28,6 +28,7 @@ $photo.addEventListener('keyup', function imgUpdate(event) {
 
 function appendEntryToDOM(inputData) {
   var $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', inputData.id);
   var $rowDiv = document.createElement('div');
   $rowDiv.setAttribute('class', 'row');
   var $imgColDiv = document.createElement('div');
