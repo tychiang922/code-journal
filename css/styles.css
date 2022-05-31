@@ -14,6 +14,11 @@ p {
   color: #3f3d43;
 }
 
+h1 {
+  letter-spacing: 1px;
+  font-size: 32px;
+}
+
 h2 {
   font-family: sans-serif;
   font-weight: 100;
@@ -38,6 +43,15 @@ input.submit-button {
   padding: 7px 15px;
   border: 0;
   border-radius: 3px;
+}
+
+ul {
+  list-style: none;
+}
+
+h3 {
+  font-size: 24px;
+  font-family: sans-serif;
 }
 
 .mt-20p {
@@ -87,4 +101,34 @@ input.submit-button {
 
 .m-0auto {
   margin: 0 auto;
+}
+
+.lh-1p25em {
+  line-height: 1.25em;
+}
+
+.font-15px {
+  font-size: 15px;
+}
+
+.fontw-500 {
+  font-weight: 500;
+}
+
+.new-button {
+  padding: 0 15px;
+  border: 0;
+  border-radius: 3px;
+}
+
+.entry-tab {
+  text-decoration: none;
+  color: white;
+  margin: auto auto auto 30px;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+.mb-40p {
+  margin-bottom: 40px;
 }
