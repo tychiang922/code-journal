@@ -30,7 +30,7 @@ img {
 
   .column-full,
   .column-half {
-    padding: 0;
+    padding: 0 1.5rem;
   }
 
   .column-half {
