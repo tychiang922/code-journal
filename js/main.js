@@ -1,21 +1,21 @@
-var $input = document.querySelectorAll('input');
+var $txtInput = document.querySelectorAll('.txt-input');
 var $saveButton = document.querySelector('.save-button');
-var $title = document.querySelector('.title');
-var $photo = document.querySelector('.photo');
-var $img = document.querySelector('img');
-
-var userInputObj = [{ imgFile: null, title: null, notes: null }];
+var $title = document.querySelector('#title');
+var $photo = document.querySelector('#photo');
+var $note = document.querySelector('#note-input');
 
 function saveAction(event) {
-  for (var inputNode = 0; inputNode < $input.length; inputNode++) {
-    if ($input[inputNode] === '') {
+  for (var inputNode = 0; inputNode < $txtInput.length; inputNode++) {
+    if ($txtInput[inputNode] === '') {
       event.preventDefault();
     }
   }
   event.preventDefault();
-  userInputObj[userInputObj.length - 1].imgFile = $photo.value;
-  userInputObj[userInputObj.length - 1].title = $title.value;
-  console.log(userInputObj);
+  data.entries.push({});
+  data.entries[data.nextEntryId - 1].imgSrc = $photo.value;
+  data.entries[data.nextEntryId - 1].title = $title.value;
+  data.entries[data.nextEntryId - 1].notes = $note.value;
+  data.nextEntryId++;
 }
 
 $saveButton.addEventListener('click', saveAction);
