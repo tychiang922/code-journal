@@ -4,7 +4,7 @@ var $title = document.querySelector('.title');
 var $photo = document.querySelector('.photo');
 var $img = document.querySelector('img');
 
-var userInputObj = [{}];
+var userInputObj = [{ imgFile: null, title: null, notes: null }];
 
 function saveAction(event) {
   for (var inputNode = 0; inputNode < $input.length; inputNode++) {
@@ -13,8 +13,8 @@ function saveAction(event) {
     }
   }
   event.preventDefault();
-  var imgSrc = $photo.value;
-  userInputObj[userInputObj.length - 1].imgFile = imgSrc;
+  userInputObj[userInputObj.length - 1].imgFile = $photo.value;
+  userInputObj[userInputObj.length - 1].title = $title.value;
   console.log(userInputObj);
 }
 
