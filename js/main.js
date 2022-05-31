@@ -20,11 +20,11 @@ function saveAction(event) {
   $photo.value = '';
   $title.value = '';
   $note.value = '';
-  storage();
+  storage(data);
 }
 
-function storage() {
-  var dataJSON = JSON.stringify(data);
+function storage(input) {
+  var dataJSON = JSON.stringify(input);
   localStorage.setItem('userData', dataJSON);
 }
 
