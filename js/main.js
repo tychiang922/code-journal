@@ -5,7 +5,7 @@ var $note = document.querySelector('#note-input');
 var $img = document.querySelector('img');
 var $form = document.querySelector('form');
 
-function saveAction(event) {
+$form.addEventListener('submit', function saveAction(event) {
   event.preventDefault();
   var dataObject = {
     imgSrc: $photo.value,
@@ -17,14 +17,11 @@ function saveAction(event) {
   data.nextEntryId++;
   $form.reset();
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-}
+});
 
-function imgUpdate(event) {
+$photo.addEventListener('keyup', function imgUpdate(event) {
   $img.setAttribute('src', $photo.value);
-}
-
-$form.addEventListener('submit', saveAction);
-$photo.addEventListener('keyup', imgUpdate);
+});
 
 function appendEntryToDOM(inputData) {
   var $li = document.createElement('li');
