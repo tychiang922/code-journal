@@ -16,6 +16,10 @@ function saveAction(event) {
   data.entries[data.nextEntryId - 1].title = $title.value;
   data.entries[data.nextEntryId - 1].notes = $note.value;
   data.nextEntryId++;
+
+  $photo.value = '';
+  $title.value = '';
+  $note.value = '';
 }
 
 $saveButton.addEventListener('click', saveAction);
