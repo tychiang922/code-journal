@@ -19,6 +19,7 @@ $form.addEventListener('submit', function saveAction(event) {
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   var newEntry = appendEntryToDOM(data.entries[0]);
   $ul.prepend(newEntry);
+  switchToEntries(event);
 });
 
 $photo.addEventListener('keyup', function imgUpdate(event) {
@@ -60,11 +61,12 @@ for (var dataEntryIndex = 0; dataEntryIndex < data.entries.length; dataEntryInde
 var $entries = document.querySelector('#entries');
 var $entryForm = document.querySelector('#entry-form');
 var $entryTab = document.querySelector('.entry-tab');
-$entryTab.addEventListener('click', function switchToEntries(event) {
+function switchToEntries(event) {
   $entries.setAttribute('class', 'view');
   $entryForm.setAttribute('class', 'view hidden');
   data.view = 'entry';
-});
+}
+$entryTab.addEventListener('click', switchToEntries);
 
 var $newButton = document.querySelector('.new-button');
 $newButton.addEventListener('click', function switchToEntryForm(event) {
