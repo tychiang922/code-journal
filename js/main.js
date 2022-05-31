@@ -63,10 +63,12 @@ var $entryTab = document.querySelector('.entry-tab');
 $entryTab.addEventListener('click', function switchToEntries(event) {
   $entries.setAttribute('class', 'view');
   $entryForm.setAttribute('class', 'view hidden');
+  data.view = 'entry';
 });
 
 var $newButton = document.querySelector('.new-button');
 $newButton.addEventListener('click', function switchToEntryForm(event) {
   $entries.setAttribute('class', 'view hidden');
   $entryForm.setAttribute('class', 'view');
+  data.view = 'entry-form';
 });
