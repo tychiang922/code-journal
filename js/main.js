@@ -61,16 +61,22 @@ for (var dataEntryIndex = 0; dataEntryIndex < data.entries.length; dataEntryInde
 var $entries = document.querySelector('#entries');
 var $entryForm = document.querySelector('#entry-form');
 var $entryTab = document.querySelector('.entry-tab');
+var $newButton = document.querySelector('.new-button');
 function switchToEntries(event) {
   $entries.setAttribute('class', 'view');
   $entryForm.setAttribute('class', 'view hidden');
   data.view = 'entry';
 }
-$entryTab.addEventListener('click', switchToEntries);
-
-var $newButton = document.querySelector('.new-button');
-$newButton.addEventListener('click', function switchToEntryForm(event) {
+function switchToEntryForm(event) {
   $entries.setAttribute('class', 'view hidden');
   $entryForm.setAttribute('class', 'view');
   data.view = 'entry-form';
-});
+}
+$entryTab.addEventListener('click', switchToEntries);
+$newButton.addEventListener('click', switchToEntryForm);
+
+if (data.view === 'entry') {
+  switchToEntries();
+} else {
+  switchToEntryForm();
+}
