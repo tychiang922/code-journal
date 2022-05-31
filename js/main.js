@@ -26,31 +26,34 @@ function imgUpdate(event) {
 $form.addEventListener('submit', saveAction);
 $photo.addEventListener('keyup', imgUpdate);
 
-function appendEntryToDOM() {
+function appendEntryToDOM(inputData) {
   var $li = document.createElement('li');
   var $rowDiv = document.createElement('div');
   $rowDiv.setAttribute('class', 'row');
-
   var $imgColDiv = document.createElement('div');
-  $imgColDiv.setAttribute('class', 'column-half mb-20p mt-20p');
-
+  $imgColDiv.setAttribute('class', 'column-half mt-20p mb-20p');
   var $imgElement = document.createElement('img');
-  $imgElement.setAttribute('src', 'images/placeholder-image-square.jpg');
-
+  $imgElement.setAttribute('src', inputData.imgSrc);
   var $txtColDiv = document.createElement('div');
-  $txtColDiv.setAttribute('class', 'column-half pt-20p mb-20p entry-txt');
-
+  $txtColDiv.setAttribute('class', 'column-half pt-20p mb-40p entry-txt');
   var $h3Title = document.createElement('h3');
-  $h3Title.textContent = 'hello';
+  $h3Title.setAttribute('class', 'mt-20p');
+  $h3Title.textContent = inputData.title;
   $txtColDiv.append($h3Title);
   var $pNotes = document.createElement('p');
-  $pNotes.textContent = 'testing';
+  $pNotes.setAttribute('class', 'mt-20p lh-1p25em font-15px fontw-500');
+  $pNotes.textContent = inputData.notes;
   $txtColDiv.append($pNotes);
 
   $imgColDiv.append($imgElement);
   $rowDiv.append($imgColDiv);
   $rowDiv.append($txtColDiv);
   $li.append($rowDiv);
+  return $li;
 }
 
-appendEntryToDOM();
+var $ul = document.querySelector('ul');
+for (var dataEntryIndex = 0; dataEntryIndex < data.entries.length; dataEntryIndex++) {
+  var liEntry = appendEntryToDOM(data.entries[dataEntryIndex]);
+  $ul.append(liEntry);
+}
