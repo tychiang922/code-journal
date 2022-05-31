@@ -37,7 +37,7 @@ function appendEntryToDOM(inputData) {
   var $txtColDiv = document.createElement('div');
   $txtColDiv.setAttribute('class', 'column-half pt-20p mb-40p entry-txt');
   var $h3Title = document.createElement('h3');
-  $h3Title.setAttribute('class', 'mt-20p');
+  $h3Title.setAttribute('class', 'mt-20p pos-rel');
   $h3Title.textContent = inputData.title;
   $txtColDiv.append($h3Title);
   var $pNotes = document.createElement('p');
@@ -45,6 +45,10 @@ function appendEntryToDOM(inputData) {
   $pNotes.textContent = inputData.notes;
   $txtColDiv.append($pNotes);
 
+  var $editIcon = document.createElement('i');
+  $editIcon.setAttribute('class', 'fa-solid fa-pen pos-abs');
+
+  $h3Title.append($editIcon);
   $imgColDiv.append($imgElement);
   $rowDiv.append($imgColDiv);
   $rowDiv.append($txtColDiv);
