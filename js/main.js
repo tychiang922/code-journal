@@ -73,7 +73,7 @@ function appendEntryToDOM(inputData) {
   $txtColDiv.append($pNotes);
 
   var $editIcon = document.createElement('i');
-  $editIcon.setAttribute('class', 'fa-solid fa-pen pos-abs');
+  $editIcon.setAttribute('class', 'fa-solid fa-pen pos-abs-edit');
   $editIcon.setAttribute('data-entry-id', inputData.id);
 
   $h3Title.append($editIcon);
