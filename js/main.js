@@ -125,7 +125,12 @@ function switchToEditEntry(event) {
   data.view = 'edit-entry';
   $editEntryHead.className = 'pt-20p mb-20p edit-entry';
   $newEntryHead.className = 'pt-20p mb-20p edit-entry hidden';
-  var dataEntryId = parseInt(event.target.getAttribute('data-entry-id'));
+  var dataEntryId = null;
+  if (event !== undefined) {
+    dataEntryId = parseInt(event.target.getAttribute('data-entry-id'));
+  } else {
+    dataEntryId = data.editing.id;
+  }
   for (var dataIndex = 0; dataIndex < data.entries.length; dataIndex++) {
     if (data.entries[dataIndex].id === dataEntryId) {
       data.editing = data.entries[dataIndex];
