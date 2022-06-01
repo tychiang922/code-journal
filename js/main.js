@@ -96,6 +96,11 @@ function switchToEditEntry(event) {
       data.editing = data.entries[dataIndex];
     }
   }
+  $img.setAttribute('src', data.editing.imgSrc);
+  $photo.value = data.editing.imgSrc;
+  $title.value = data.editing.title;
+  $note.value = data.editing.notes;
+
 }
 
 var $i = document.querySelector('i');
