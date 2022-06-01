@@ -4,6 +4,8 @@ var $photo = document.querySelector('#photo');
 var $note = document.querySelector('#note-input');
 var $img = document.querySelector('img');
 var $form = document.querySelector('form');
+var $newEntryHead = document.querySelector('.new-entry');
+var $editEntryHead = document.querySelector('.edit-entry');
 
 $form.addEventListener('submit', function saveAction(event) {
   if (data.view === 'entry-form') {
@@ -40,6 +42,8 @@ $form.addEventListener('submit', function saveAction(event) {
         break;
       }
     }
+    $form.reset();
+    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
   var $i = document.querySelectorAll('i');
   for (var i = 0; i < $i.length; i++) {
@@ -100,6 +104,8 @@ function switchToEntries(event) {
 function switchToEntryForm(event) {
   $entries.setAttribute('class', 'view hidden');
   $entryForm.setAttribute('class', 'view');
+  $editEntryHead.className = 'pt-20p mb-20p edit-entry hidden';
+  $newEntryHead.className = 'pt-20p mb-20p edit-entry';
   data.view = 'entry-form';
 }
 $entryTab.addEventListener('click', switchToEntries);
@@ -117,8 +123,8 @@ function switchToEditEntry(event) {
   $entries.setAttribute('class', 'view hidden');
   $entryForm.setAttribute('class', 'view');
   data.view = 'edit-entry';
-  var $h1 = document.querySelector('h1');
-  $h1.textContent = 'Edit Entry';
+  $editEntryHead.className = 'pt-20p mb-20p edit-entry';
+  $newEntryHead.className = 'pt-20p mb-20p edit-entry hidden';
   var dataEntryId = parseInt(event.target.getAttribute('data-entry-id'));
   for (var dataIndex = 0; dataIndex < data.entries.length; dataIndex++) {
     if (data.entries[dataIndex].id === dataEntryId) {
