@@ -105,6 +105,8 @@ function switchToEntryForm(event) {
   $editEntryHead.className = 'pt-20p mb-20p edit-entry hidden';
   $newEntryHead.className = 'pt-20p mb-20p edit-entry';
   data.view = 'entry-form';
+  $form.reset();
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
 $entryTab.addEventListener('click', switchToEntries);
 $newButton.addEventListener('click', switchToEntryForm);
