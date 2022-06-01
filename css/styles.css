@@ -54,6 +54,15 @@ h3 {
   font-family: sans-serif;
 }
 
+i {
+  font-size: 24px;
+  color: #8261a4;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
 .mt-20p {
   margin-top: 20px;
 }
@@ -131,4 +140,14 @@ h3 {
 
 .mb-40p {
   margin-bottom: 40px;
+}
+
+.pos-abs {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.pos-rel {
+  position: relative;
 }
