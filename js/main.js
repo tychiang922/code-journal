@@ -28,7 +28,6 @@ $photo.addEventListener('keyup', function imgUpdate(event) {
 
 function appendEntryToDOM(inputData) {
   var $li = document.createElement('li');
-  $li.setAttribute('data-entry-id', inputData.id);
   var $rowDiv = document.createElement('div');
   $rowDiv.setAttribute('class', 'row');
   var $imgColDiv = document.createElement('div');
@@ -48,6 +47,7 @@ function appendEntryToDOM(inputData) {
 
   var $editIcon = document.createElement('i');
   $editIcon.setAttribute('class', 'fa-solid fa-pen pos-abs');
+  $editIcon.setAttribute('data-entry-id', inputData.id);
 
   $h3Title.append($editIcon);
   $imgColDiv.append($imgElement);
@@ -85,3 +85,12 @@ if (data.view === 'entry') {
 } else {
   switchToEntryForm();
 }
+
+function switchToEditEntry(event) {
+  switchToEntryForm();
+  var $h1 = document.querySelector('h1');
+  $h1.textContent = 'Edit Entry';
+}
+
+var $i = document.querySelector('i');
+$i.addEventListener('click', switchToEditEntry);
