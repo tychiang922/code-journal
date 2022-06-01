@@ -213,3 +213,7 @@ i:hover {
   color: black;
   padding: 8px 10px;
 }
+
+.delete {
+  color: rgb(253 57 57);
+}
