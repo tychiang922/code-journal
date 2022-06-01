@@ -45,10 +45,7 @@ $form.addEventListener('submit', function saveAction(event) {
     $form.reset();
     $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
-  var $i = document.querySelectorAll('i');
-  for (var i = 0; i < $i.length; i++) {
-    $i[i].addEventListener('click', switchToEditEntry);
-  }
+  defineEditIcon();
 });
 
 $photo.addEventListener('keyup', function imgUpdate(event) {
@@ -100,6 +97,7 @@ function switchToEntries(event) {
   $entries.setAttribute('class', 'view');
   $entryForm.setAttribute('class', 'view hidden');
   data.view = 'entry';
+  defineEditIcon();
 }
 function switchToEntryForm(event) {
   $entries.setAttribute('class', 'view hidden');
@@ -142,7 +140,9 @@ function switchToEditEntry(event) {
   $note.value = data.editing.notes;
 }
 
-var $i = document.querySelectorAll('i');
-for (var i = 0; i < $i.length; i++) {
-  $i[i].addEventListener('click', switchToEditEntry);
+function defineEditIcon() {
+  var $i = document.querySelectorAll('i');
+  for (var i = 0; i < $i.length; i++) {
+    $i[i].addEventListener('click', switchToEditEntry);
+  }
 }
