@@ -90,6 +90,12 @@ function switchToEditEntry(event) {
   switchToEntryForm();
   var $h1 = document.querySelector('h1');
   $h1.textContent = 'Edit Entry';
+  var dataEntryId = parseInt(event.target.getAttribute('data-entry-id'));
+  for (var dataIndex = 0; dataIndex < data.entries.length; dataIndex++) {
+    if (data.entries[dataIndex].id === dataEntryId) {
+      data.editing = data.entries[dataIndex];
+    }
+  }
 }
 
 var $i = document.querySelector('i');
