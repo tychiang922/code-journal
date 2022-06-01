@@ -42,6 +42,7 @@ $form.addEventListener('submit', function saveAction(event) {
         break;
       }
     }
+    data.editing = null;
     $form.reset();
     $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
