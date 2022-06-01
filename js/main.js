@@ -135,12 +135,26 @@ function switchToEditEntry(event) {
   for (var dataIndex = 0; dataIndex < data.entries.length; dataIndex++) {
     if (data.entries[dataIndex].id === dataEntryId) {
       data.editing = data.entries[dataIndex];
+      var currentEntry = dataIndex;
+      break;
     }
   }
   $img.setAttribute('src', data.editing.imgSrc);
   $photo.value = data.editing.imgSrc;
   $title.value = data.editing.title;
   $note.value = data.editing.notes;
+
+  var $deleteLink = document.querySelector('.delete');
+  $deleteLink.setAttribute('class', 'delete');
+  $deleteLink.addEventListener('click', function deleteAction() {
+    var $liAll = document.querySelectorAll('li');
+    data.entries.splice(currentEntry, 1);
+    $liAll[currentEntry].remove();
+    data.editing = null;
+    switchToEntries();
+    $form.reset();
+    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  });
 }
 
 function defineEditIcon() {
