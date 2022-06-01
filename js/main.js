@@ -6,6 +6,7 @@ var $img = document.querySelector('img');
 var $form = document.querySelector('form');
 var $newEntryHead = document.querySelector('.new-entry');
 var $editEntryHead = document.querySelector('.edit-entry');
+var $deleteLink = document.querySelector('.delete');
 
 $form.addEventListener('submit', function saveAction(event) {
   if (data.view === 'entry-form') {
@@ -73,7 +74,7 @@ function appendEntryToDOM(inputData) {
   $txtColDiv.append($pNotes);
 
   var $editIcon = document.createElement('i');
-  $editIcon.setAttribute('class', 'fa-solid fa-pen pos-abs');
+  $editIcon.setAttribute('class', 'fa-solid fa-pen pos-abs-edit');
   $editIcon.setAttribute('data-entry-id', inputData.id);
 
   $h3Title.append($editIcon);
@@ -103,6 +104,7 @@ function switchToEntries(event) {
 function switchToEntryForm(event) {
   $entries.setAttribute('class', 'view hidden');
   $entryForm.setAttribute('class', 'view');
+  $deleteLink.setAttribute('class', 'delete hidden');
   $editEntryHead.className = 'pt-20p mb-20p edit-entry hidden';
   $newEntryHead.className = 'pt-20p mb-20p edit-entry';
   data.view = 'entry-form';
@@ -135,12 +137,18 @@ function switchToEditEntry(event) {
   for (var dataIndex = 0; dataIndex < data.entries.length; dataIndex++) {
     if (data.entries[dataIndex].id === dataEntryId) {
       data.editing = data.entries[dataIndex];
+      break;
     }
   }
   $img.setAttribute('src', data.editing.imgSrc);
   $photo.value = data.editing.imgSrc;
   $title.value = data.editing.title;
   $note.value = data.editing.notes;
+
+  $deleteLink.setAttribute('class', 'delete');
+  $deleteLink.addEventListener('click', function deleteAction() {
+    $modal.setAttribute('class', 'modal');
+  });
 }
 
 function defineEditIcon() {
@@ -149,3 +157,25 @@ function defineEditIcon() {
     $i[i].addEventListener('click', switchToEditEntry);
   }
 }
+
+var $modal = document.querySelector('.modal');
+var $modalCancel = document.querySelector('.modal-cancel');
+$modalCancel.addEventListener('click', function hideModal() {
+  $modal.setAttribute('class', 'modal hidden');
+});
+var $modalConfirm = document.querySelector('.modal-confirm');
+$modalConfirm.addEventListener('click', function deleteEntryConfirmed() {
+  var $liAll = document.querySelectorAll('li');
+  for (var dataIndex = 0; dataIndex < data.entries.length; dataIndex++) {
+    if (data.entries[dataIndex].id === data.editing.id) {
+      data.entries.splice(dataIndex, 1);
+      $liAll[dataIndex].remove();
+      $modal.setAttribute('class', 'modal hidden');
+      switchToEntries(event);
+      break;
+    }
+  }
+  data.editing = null;
+  $form.reset();
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+});
