@@ -237,7 +237,8 @@ i:hover {
 
 .entry-search:focus {
   width: 50%;
-  padding: 5px;
+  padding: 8px 10px;
+  font-size: 20px;
 }
 
 .entry-search::placeholder {
