@@ -13,8 +13,8 @@ $form.addEventListener('submit', function saveAction(event) {
     event.preventDefault();
     var dataObject = {
       imgSrc: $photo.value,
-      title: $title.value,
-      notes: $note.value,
+      title: $title.value.toString(),
+      notes: $note.value.toString(),
       id: data.nextEntryId
     };
     data.entries.unshift(dataObject);
@@ -178,4 +178,23 @@ $modalConfirm.addEventListener('click', function deleteEntryConfirmed() {
   data.editing = null;
   $form.reset();
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+});
+
+var $search = document.querySelector('#search');
+$search.addEventListener('keyup', function userSearchEntryTitle(event) {
+  var $liAll = document.querySelectorAll('li');
+  var searchInput = $search.value;
+  if (event.key === 'Enter') {
+    $search.blur();
+  }
+  for (var dEi = 0; dEi < data.entries.length; dEi++) {
+    var match = data.entries[dEi].title.includes(searchInput);
+    if (searchInput === '') {
+      $liAll[dEi].setAttribute('class', '');
+    } else if (!match) {
+      $liAll[dEi].setAttribute('class', 'hidden');
+    } else {
+      $liAll[dEi].setAttribute('class', '');
+    }
+  }
 });
