@@ -179,3 +179,18 @@ $modalConfirm.addEventListener('click', function deleteEntryConfirmed() {
   $form.reset();
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
 });
+
+var $search = document.querySelector('#search');
+$search.addEventListener('keyup', function userSearchEntryTitle(event) {
+  var $liAll = document.querySelectorAll('li');
+  var searchInput = $search.value;
+  for (var dEi = 0; dEi < data.entries.length; dEi++) {
+    if (searchInput === '') {
+      $liAll[dEi].setAttribute('class', '');
+    } else if (!searchInput.startsWith(data.entries[dEi].title)) {
+      $liAll[dEi].setAttribute('class', 'hidden');
+    } else {
+      $liAll[dEi].setAttribute('class', '');
+    }
+  }
+});

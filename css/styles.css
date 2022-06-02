@@ -217,3 +217,19 @@ i:hover {
 .delete {
   color: rgb(253 57 57);
 }
+
+.justify-center {
+  justify-content: center;
+  margin: auto;
+}
+
+.entry-search-txt {
+  text-align: center;
+  font-size: 18px;
+}
+
+.entry-search {
+  width: 50%;
+  font-size: 18px;
+  margin: auto;
+}
