@@ -184,6 +184,9 @@ var $search = document.querySelector('#search');
 $search.addEventListener('keyup', function userSearchEntryTitle(event) {
   var $liAll = document.querySelectorAll('li');
   var searchInput = $search.value;
+  if (event.key === 'Enter') {
+    $search.blur();
+  }
   for (var dEi = 0; dEi < data.entries.length; dEi++) {
     var match = data.entries[dEi].title.includes(searchInput);
     if (searchInput === '') {

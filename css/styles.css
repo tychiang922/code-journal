@@ -229,7 +229,14 @@ i:hover {
 }
 
 .entry-search {
-  width: 50%;
+  text-align: center;
+  width: 125px;
   font-size: 18px;
   margin: auto;
+  transition: all 0.5s;
+}
+
+.entry-search:focus {
+  width: 50%;
+  text-align: left;
 }
