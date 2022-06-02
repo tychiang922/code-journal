@@ -13,8 +13,8 @@ $form.addEventListener('submit', function saveAction(event) {
     event.preventDefault();
     var dataObject = {
       imgSrc: $photo.value,
-      title: $title.value,
-      notes: $note.value,
+      title: $title.value.toString(),
+      notes: $note.value.toString(),
       id: data.nextEntryId
     };
     data.entries.unshift(dataObject);
