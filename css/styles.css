@@ -224,16 +224,12 @@ i:hover {
   margin: auto;
 }
 
-.entry-search-txt {
-  text-align: center;
-  font-size: 18px;
-}
-
 .entry-search {
   width: 150px;
   font-size: 18px;
   margin: auto;
   transition: all 1s;
+  text-align: center;
 }
 
 .entry-search:focus {
