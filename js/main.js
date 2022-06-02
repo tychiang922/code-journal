@@ -185,9 +185,10 @@ $search.addEventListener('keyup', function userSearchEntryTitle(event) {
   var $liAll = document.querySelectorAll('li');
   var searchInput = $search.value;
   for (var dEi = 0; dEi < data.entries.length; dEi++) {
+    var match = data.entries[dEi].title.includes(searchInput);
     if (searchInput === '') {
       $liAll[dEi].setAttribute('class', '');
-    } else if (!searchInput.startsWith(data.entries[dEi].title)) {
+    } else if (!match) {
       $liAll[dEi].setAttribute('class', 'hidden');
     } else {
       $liAll[dEi].setAttribute('class', '');
